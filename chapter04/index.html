@@ -1,0 +1,2291 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI 기본 원리부터 윤리까지, 체험과 토론 중심의 정보 교과 교재">
+      
+      
+        <meta name="author" content="석리송 · 당곡고등학교 (EduFlow)">
+      
+      
+      
+        <link rel="prev" href="../chapter03/">
+      
+      
+        <link rel="next" href="../chapter05/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>AI 모델의 성능 개선과 활용 - 인공지능과 미래사회</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-04-ai" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="인공지능과 미래사회" class="md-header__button md-logo" aria-label="인공지능과 미래사회" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            인공지능과 미래사회
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI 모델의 성능 개선과 활용
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="공유" aria-label="공유" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 1 - 인공지능의 이해
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter03/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 2 - AI 체험 실습
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter05/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 3 - 프롬프트 엔지니어링
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter07/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 4 - AI 윤리와 미래
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="인공지능과 미래사회" class="md-nav__button md-logo" aria-label="인공지능과 미래사회" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    인공지능과 미래사회
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - 인공지능의 이해
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - 인공지능의 이해
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인공지능이란 무엇인가
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    머신러닝과 딥러닝의 원리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - AI 체험 실습
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - AI 체험 실습
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teachable Machine으로 이미지 분류기 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 모델의 성능 개선과 활용
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 모델의 성능 개선과 활용
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장에서 배우는 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념 1: 데이터 편향 (Data Bias)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념 1: 데이터 편향 (Data Bias)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎭 비유로 시작하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정확한 정의
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 데이터 편향의 3가지 유형
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 실제 사례로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 데이터 편향 실험: 숫자로 확인하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념 2: 모델 성능 개선 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념 2: 모델 성능 개선 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚗 비유로 시작하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 성능 지표 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ 모델 성능을 개선하는 4가지 전략
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기 실습: AI 모델 개선 도전!
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기 실습: AI 모델 개선 도전!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 편향된 모델 만들기 (비교 실험의 기준점)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 문제 진단하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 데이터 개선하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 개선 효과 측정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 웹에서 모델 활용하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 AI가 실제로 활용되는 곳들
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 모델 개선의 반복 사이클
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 주의할 점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의 1: "정확도 함정"에 빠지지 마세요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의 2: 실제 환경 ≠ 학습 환경
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ 점검하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        확인 문제 (객관식)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - 프롬프트 엔지니어링
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - 프롬프트 엔지니어링
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프롬프트 엔지니어링의 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프롬프트 엔지니어링 실전 활용
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - AI 윤리와 미래
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - AI 윤리와 미래
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 윤리와 사회적 책임
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    우리 반 AI 윤리 헌장 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장에서 배우는 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념 1: 데이터 편향 (Data Bias)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념 1: 데이터 편향 (Data Bias)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎭 비유로 시작하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 정확한 정의
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 데이터 편향의 3가지 유형
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 실제 사례로 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 데이터 편향 실험: 숫자로 확인하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념 2: 모델 성능 개선 전략
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념 2: 모델 성능 개선 전략">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚗 비유로 시작하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 성능 지표 이해하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ 모델 성능을 개선하는 4가지 전략
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기 실습: AI 모델 개선 도전!
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기 실습: AI 모델 개선 도전!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 편향된 모델 만들기 (비교 실험의 기준점)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 문제 진단하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 데이터 개선하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 개선 효과 측정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 웹에서 모델 활용하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 AI가 실제로 활용되는 곳들
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 모델 개선의 반복 사이클
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ 주의할 점">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의 1: "정확도 함정"에 빠지지 마세요
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의 2: 실제 환경 ≠ 학습 환경
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ 점검하기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        확인 문제 (객관식)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../chapter03/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Part 2 - AI 체험 실습
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-04-ai">Chapter 04: AI 모델의 성능 개선과 활용<a class="headerlink" href="#chapter-04-ai" title="Permanent link">&para;</a></h1>
+<p><strong>Part 2 | AI 체험 실습</strong> · 4차시 / 8차시 · ⏱️ 50분</p>
+<hr />
+<h2 id="_1">🎯 이 장에서 배우는 것<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>데이터 편향</strong>이 무엇인지, 그리고 AI 모델 성능에 어떤 영향을 미치는지 설명할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>모델 정확도를 개선</strong>하는 구체적인 방법을 실습을 통해 경험할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 완성된 AI 모델을 <strong>웹에서 직접 활용</strong>하는 방법을 알고 적용할 수 있다</li>
+</ul>
+<hr />
+<blockquote>
+<p>💬 <strong>지난 시간 돌아보기</strong></p>
+<p>지난 챕터에서 우리는 Teachable Machine을 이용해 첫 번째 AI 모델을 만들어 봤습니다. 카메라 앞에 손을 내밀었을 때 AI가 "가위", "바위", "보"를 맞추는 모습을 보고 신기했나요? 혹시 모델이 틀리는 경우도 있었나요? 🤔</p>
+<p>사실 그 오류에는 이유가 있습니다. 이번 챕터에서는 바로 그 이유를 파헤치고, 더 똑똑한 AI를 만드는 방법을 배워보겠습니다!</p>
+</blockquote>
+<hr />
+<h2 id="1-data-bias">📚 핵심 개념 1: 데이터 편향 (Data Bias)<a class="headerlink" href="#1-data-bias" title="Permanent link">&para;</a></h2>
+<h3 id="_2">🎭 비유로 시작하기<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>데이터 편향은 마치 "한쪽 눈만 가리고 세상을 판단하는 것"과 같아요.</strong></p>
+</blockquote>
+<p>상상해 보세요. 어떤 사람이 평생 눈이 내리는 지역에서만 살았습니다. 그 사람에게 "비가 오면 길이 어떻게 되나요?"라고 물으면 뭐라고 할까요? "길이 하얗게 덮이죠!"라고 대답할지도 모릅니다. 비가 오는 것을 한 번도 직접 경험하지 못했으니까요.</p>
+<p>AI도 마찬가지입니다. AI가 학습하는 데이터가 한쪽으로 치우쳐 있으면, AI의 판단도 그쪽으로 치우치게 됩니다. 이것이 바로 <strong>데이터 편향(Data Bias)</strong> 입니다.</p>
+<hr />
+<h3 id="_3">📖 정확한 정의<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>데이터 편향(Data Bias)</strong> 이란, AI를 학습시키는 훈련 데이터가 특정 상황, 특정 유형, 특정 조건에 지나치게 쏠려 있어서, 그 결과로 만들어진 AI 모델이 공정하지 않거나 부정확한 판단을 내리는 현상을 말합니다.</p>
+<p>쉽게 말해서: <strong>"데이터가 불균형하면, AI의 판단도 불균형해진다"</strong> 는 것입니다.</p>
+<hr />
+<h3 id="3">🔍 데이터 편향의 3가지 유형<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<div class="svg-diagram">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px">
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- 제목 -->
+  <text x="350" y="30" text-anchor="middle" font-size="18" font-family="sans-serif" font-weight="bold" fill="#333">데이터 편향의 3가지 유형</text>
+
+  <!-- 유형 1: 표본 편향 -->
+  <rect x="20" y="55" width="200" height="230" rx="12" fill="#2196F3" opacity="0.08" stroke="#2196F3" stroke-width="2"/>
+  <text x="120" y="82" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="#1565C0">① 표본 편향</text>
+  <text x="120" y="104" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#555">(Sampling Bias)</text>
+
+  <!-- 막대 그래프 시각화 -->
+  <rect x="60" y="200" width="30" height="60" fill="#2196F3" opacity="0.7" rx="3"/>
+  <text x="75" y="195" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#1565C0">90%</text>
+  <text x="75" y="275" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">A유형</text>
+
+  <rect x="115" y="245" width="30" height="15" fill="#F44336" opacity="0.7" rx="3"/>
+  <text x="130" y="242" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#C62828">10%</text>
+  <text x="130" y="275" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">B유형</text>
+
+  <text x="120" y="125" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">데이터 수집 자체가</text>
+  <text x="120" y="141" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">한쪽으로 치우친 경우</text>
+  <text x="120" y="162" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">예: 밝은 조명에서만</text>
+  <text x="120" y="177" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">촬영된 사진으로 학습</text>
+
+  <!-- 유형 2: 레이블 편향 -->
+  <rect x="250" y="55" width="200" height="230" rx="12" fill="#FF9800" opacity="0.08" stroke="#FF9800" stroke-width="2"/>
+  <text x="350" y="82" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="#E65100">② 레이블 편향</text>
+  <text x="350" y="104" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#555">(Label Bias)</text>
+
+  <!-- 잘못된 레이블 시각화 -->
+  <rect x="290" y="190" width="40" height="40" rx="6" fill="#FF9800" opacity="0.4" stroke="#FF9800"/>
+  <text x="310" y="215" text-anchor="middle" font-size="18" font-family="sans-serif">🐱</text>
+  <text x="310" y="245" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#C62828">→ "강아지"로</text>
+  <text x="310" y="258" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#C62828">잘못 분류됨</text>
+
+  <rect x="360" y="190" width="40" height="40" rx="6" fill="#FF9800" opacity="0.4" stroke="#FF9800"/>
+  <text x="380" y="215" text-anchor="middle" font-size="18" font-family="sans-serif">🐶</text>
+  <text x="380" y="245" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#2E7D32">→ "강아지"로</text>
+  <text x="380" y="258" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#2E7D32">올바르게 분류</text>
+
+  <text x="350" y="125" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">데이터에 붙인 정답</text>
+  <text x="350" y="141" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">레이블이 잘못된 경우</text>
+  <text x="350" y="162" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">예: 사진에 잘못된</text>
+  <text x="350" y="177" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">이름표를 붙임</text>
+
+  <!-- 유형 3: 확증 편향 -->
+  <rect x="480" y="55" width="200" height="230" rx="12" fill="#9C27B0" opacity="0.08" stroke="#9C27B0" stroke-width="2"/>
+  <text x="580" y="82" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="#6A1B9A">③ 확증 편향</text>
+  <text x="580" y="104" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#555">(Confirmation Bias)</text>
+
+  <!-- 필터 버블 시각화 -->
+  <circle cx="580" cy="220" r="40" fill="none" stroke="#9C27B0" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
+  <text x="580" y="215" text-anchor="middle" font-size="22" font-family="sans-serif">🫧</text>
+  <text x="580" y="240" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#6A1B9A">필터 버블</text>
+  <text x="580" y="270" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#6A1B9A">같은 의견만 반복</text>
+
+  <text x="580" y="125" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">기존 믿음을 강화하는</text>
+  <text x="580" y="141" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">데이터만 모으는 경우</text>
+  <text x="580" y="162" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">예: 한 종류의 뉴스만</text>
+  <text x="580" y="177" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#777">학습한 추천 알고리즘</text>
+</svg>
+</div>
+
+<hr />
+<h3 id="_4">🎮 실제 사례로 이해하기<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><strong>사례 1: 손동작 인식 AI의 편향</strong></p>
+<p>지난 시간에 만든 가위바위보 AI를 생각해 보세요. 만약 모든 학습 데이터를 <strong>오른손</strong>으로만 촬영했다면 어떻게 될까요? 왼손으로 "주먹"을 내밀었을 때 AI는 이것을 제대로 인식하지 못할 수 있습니다. 이것이 표본 편향입니다.</p>
+<p><strong>사례 2: 의료 AI의 편향</strong></p>
+<p>실제 사례로, 피부암 진단 AI가 주로 밝은 피부톤의 사진으로 학습되었을 때, 어두운 피부톤을 가진 사람들의 피부 질환을 제대로 진단하지 못하는 문제가 발생했습니다. 이는 데이터 편향이 단순한 불편함을 넘어 <strong>심각한 사회적 문제</strong>로 이어질 수 있음을 보여줍니다.</p>
+<p><strong>사례 3: 채용 AI의 편향</strong></p>
+<p>한 글로벌 IT 기업이 이력서를 자동으로 심사하는 AI를 개발했습니다. 그런데 과거 합격자 데이터로 학습시켰더니, 과거에 특정 그룹이 많이 채용되었다는 이유만으로 그 그룹에게 높은 점수를 주는 현상이 나타났습니다. 결국 이 AI 시스템은 폐기되었습니다.</p>
+<hr />
+<h3 id="_5">📊 데이터 편향 실험: 숫자로 확인하기<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>아래 표는 같은 AI 모델을 서로 다른 데이터로 학습시켰을 때의 차이를 보여줍니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">실험 조건</th>
+<th style="text-align: center;">학습 데이터 구성</th>
+<th style="text-align: center;">전체 정확도</th>
+<th style="text-align: center;">A 클래스 정확도</th>
+<th style="text-align: center;">B 클래스 정확도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">실험 1 (편향됨)</td>
+<td style="text-align: center;">A: 90장 / B: 10장</td>
+<td style="text-align: center;">85%</td>
+<td style="text-align: center;"><strong>96%</strong></td>
+<td style="text-align: center;"><strong>22%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">실험 2 (균형)</td>
+<td style="text-align: center;">A: 50장 / B: 50장</td>
+<td style="text-align: center;">88%</td>
+<td style="text-align: center;"><strong>89%</strong></td>
+<td style="text-align: center;"><strong>87%</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">실험 3 (풍부+균형)</td>
+<td style="text-align: center;">A: 200장 / B: 200장</td>
+<td style="text-align: center;"><strong>95%</strong></td>
+<td style="text-align: center;"><strong>96%</strong></td>
+<td style="text-align: center;"><strong>94%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>핵심 인사이트</strong>: 실험 1을 보면 "전체 정확도는 85%로 나쁘지 않아 보이지만", B 클래스는 겨우 22%만 맞추고 있습니다! 전체 수치만 보면 편향을 놓칠 수 있습니다.</p>
+</blockquote>
+<hr />
+<h2 id="2">📚 핵심 개념 2: 모델 성능 개선 전략<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="_6">🚗 비유로 시작하기<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>모델 성능 개선은 마치 "운전 실력을 키우는 것"과 같아요.</strong></p>
+</blockquote>
+<p>처음 운전을 배울 때는 좁은 골목에서 연습했다면, 고속도로나 빗길에서는 잘 못 할 수 있습니다. 더 다양한 상황에서 더 많이 연습하고, 잘못된 부분을 코치에게 지적받아 고쳐나가야 실력이 늘죠. AI 모델도 똑같습니다.</p>
+<hr />
+<h3 id="_7">📖 성능 지표 이해하기<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>모델을 개선하려면 먼저 <strong>"무엇이 문제인지"</strong> 를 숫자로 측정해야 합니다.</p>
+<p><strong>정확도(Accuracy)</strong> 란 무엇일까요?</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>정확도(%) = (올바르게 분류한 수 ÷ 전체 시도 수) × 100
+</span></code></pre></div>
+<p>예를 들어, 100번 중 87번 맞췄다면 정확도는 <strong>87%</strong> 입니다.</p>
+<p>하지만 정확도만으로는 부족합니다. 앞서 실험 1에서 봤듯이, 전체 정확도는 높아도 특정 클래스는 형편없을 수 있거든요. 그래서 추가로 살펴볼 지표들이 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">지표</th>
+<th style="text-align: center;">의미</th>
+<th style="text-align: center;">언제 중요한가?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>정확도 (Accuracy)</strong></td>
+<td style="text-align: center;">전체 중 맞춘 비율</td>
+<td style="text-align: center;">일반적인 성능 측정</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>정밀도 (Precision)</strong></td>
+<td style="text-align: center;">"맞다"고 했을 때 실제로 맞는 비율</td>
+<td style="text-align: center;">오탐지가 문제일 때</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>재현율 (Recall)</strong></td>
+<td style="text-align: center;">실제 맞는 것 중 찾아낸 비율</td>
+<td style="text-align: center;">놓치면 안 될 때 (질병 진단 등)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>혼동 행렬</strong></td>
+<td style="text-align: center;">어떤 클래스를 어디로 잘못 분류했는지</td>
+<td style="text-align: center;">오류 패턴 파악</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4">🛠️ 모델 성능을 개선하는 4가지 전략<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="svg-diagram">
+<svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px">
+  <!-- 배경 -->
+  <rect x="0" y="0" width="680" height="400" rx="16" fill="#FAFAFA" stroke="#E0E0E0"/>
+
+  <!-- 제목 -->
+  <text x="340" y="35" text-anchor="middle" font-size="17" font-family="sans-serif" font-weight="bold" fill="#333">모델 성능 개선의 4가지 전략</text>
+
+  <!-- 전략 1 -->
+  <rect x="30" y="55" width="295" height="145" rx="10" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.5"/>
+  <text x="55" y="82" font-size="15" font-family="sans-serif" font-weight="bold" fill="#1565C0">① 데이터 양 늘리기</text>
+  <text x="55" y="105" font-size="12" font-family="sans-serif" fill="#444">더 많은 학습 데이터 = 더 많은 경험</text>
+  <text x="55" y="125" font-size="12" font-family="sans-serif" fill="#666">• 각 클래스당 최소 50장 이상 권장</text>
+  <text x="55" y="143" font-size="12" font-family="sans-serif" fill="#666">• 다양한 각도, 거리, 배경</text>
+  <text x="55" y="161" font-size="12" font-family="sans-serif" fill="#666">• 다양한 조명 조건</text>
+  <text x="55" y="183" font-size="11" font-family="sans-serif" fill="#1565C0">효과: ⭐⭐⭐⭐⭐</text>
+
+  <!-- 전략 2 -->
+  <rect x="355" y="55" width="295" height="145" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="380" y="82" font-size="15" font-family="sans-serif" font-weight="bold" fill="#2E7D32">② 데이터 균형 맞추기</text>
+  <text x="380" y="105" font-size="12" font-family="sans-serif" fill="#444">클래스 간 데이터 수를 비슷하게</text>
+  <text x="380" y="125" font-size="12" font-family="sans-serif" fill="#666">• A: 100장, B: 100장 (O)</text>
+  <text x="380" y="143" font-size="12" font-family="sans-serif" fill="#666">• A: 200장, B: 10장 (X)</text>
+  <text x="380" y="161" font-size="12" font-family="sans-serif" fill="#666">• 가장 적은 클래스를 기준으로</text>
+  <text x="380" y="183" font-size="11" font-family="sans-serif" fill="#2E7D32">효과: ⭐⭐⭐⭐⭐</text>
+
+  <!-- 전략 3 -->
+  <rect x="30" y="220" width="295" height="145" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="55" y="247" font-size="15" font-family="sans-serif" font-weight="bold" fill="#E65100">③ 데이터 다양성 확보</text>
+  <text x="55" y="270" font-size="12" font-family="sans-serif" fill="#444">다양한 조건의 데이터 수집</text>
+  <text x="55" y="290" font-size="12" font-family="sans-serif" fill="#666">• 여러 사람이 함께 데이터 생성</text>
+  <text x="55" y="308" font-size="12" font-family="sans-serif" fill="#666">• 밝은/어두운 환경 모두 포함</text>
+  <text x="55" y="326" font-size="12" font-family="sans-serif" fill="#666">• 다양한 배경, 거리 포함</text>
+  <text x="55" y="348" font-size="11" font-family="sans-serif" fill="#E65100">효과: ⭐⭐⭐⭐</text>
+
+  <!-- 전략 4 -->
+  <rect x="355" y="220" width="295" height="145" rx="10" fill="#F3E5F5" stroke="#9C27B0" stroke-width="1.5"/>
+  <text x="380" y="247" font-size="15" font-family="sans-serif" font-weight="bold" fill="#6A1B9A">④ 레이블 품질 관리</text>
+  <text x="380" y="270" font-size="12" font-family="sans-serif" fill="#444">정확한 이름표 붙이기</text>
+  <text x="380" y="290" font-size="12" font-family="sans-serif" fill="#666">• 애매한 데이터는 제거</text>
+  <text x="380" y="308" font-size="12" font-family="sans-serif" fill="#666">• 두 사람 이상이 검토</text>
+  <text x="380" y="326" font-size="12" font-family="sans-serif" fill="#666">• 클래스 기준을 명확히 정의</text>
+  <text x="380" y="348" font-size="11" font-family="sans-serif" fill="#6A1B9A">효과: ⭐⭐⭐⭐</text>
+
+  <!-- 중앙 연결 -->
+  <text x="340" y="390" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#888">* 네 가지를 함께 적용할수록 효과가 커집니다</text>
+</svg>
+</div>
+
+<hr />
+<h2 id="ai">🔨 따라하기 실습: AI 모델 개선 도전!<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>🎯 <strong>오늘의 목표</strong>: Teachable Machine에서 직접 편향된 모델을 만들고, 개선하는 과정을 경험합니다.</p>
+<p>🔗 <strong>접속 주소</strong>: <a href="https://teachablemachine.withgoogle.com">teachablemachine.withgoogle.com</a></p>
+<p>⏱️ <strong>예상 소요 시간</strong>: 약 25분</p>
+</blockquote>
+<hr />
+<h3 id="step-1">Step 1: 편향된 모델 만들기 (비교 실험의 기준점)<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h3>
+<p><strong>왜 먼저 나쁜 모델을 만드냐고요?</strong> 개선 전과 후를 비교해야 얼마나 나아졌는지 알 수 있기 때문입니다. 이것을 <strong>대조 실험</strong>이라고 합니다. 과학자처럼 생각해 보세요! 🧪</p>
+<p><strong>① Teachable Machine 접속 후 "이미지 프로젝트" 선택</strong></p>
+<p>새 프로젝트를 시작하면 "Class 1"과 "Class 2" 두 개의 클래스가 보입니다. 이름을 바꿔봅시다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">클래스</th>
+<th style="text-align: center;">이름 변경</th>
+<th style="text-align: center;">수집할 데이터 수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Class 1</td>
+<td style="text-align: center;"><code>주먹</code></td>
+<td style="text-align: center;"><strong>30장</strong> (많이)</td>
+</tr>
+<tr>
+<td style="text-align: center;">Class 2</td>
+<td style="text-align: center;"><code>보자기</code></td>
+<td style="text-align: center;"><strong>5장</strong> (적게)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>② 편향된 데이터 수집하기</strong></p>
+<ul>
+<li>"주먹" 클래스: 웹캠으로 30장 촬영 (다양하게 촬영하세요)</li>
+<li>"보자기" 클래스: 웹캠으로 <strong>딱 5장만</strong> 촬영 (같은 자세로 비슷하게)</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>주의</strong>: 이것은 일부러 나쁘게 만드는 실험입니다! 나중에 고칠 거예요.</p>
+</blockquote>
+<p><strong>③ 모델 학습 및 결과 기록</strong></p>
+<p>"모델 학습" 버튼을 클릭하고, 아래 표에 결과를 기록해 두세요.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>📝 실험 1 기록지
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>─────────────────────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>주먹 데이터 수: 30장
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>보자기 데이터 수: 5장
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>테스트 결과:
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>- 주먹을 냈을 때 정확히 인식? [ ]
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>- 보자기를 냈을 때 정확히 인식? [ ]
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>- 어떤 오류가 발생했나요?
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  _________________________________
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>─────────────────────────────────
+</span></code></pre></div>
+<hr />
+<h3 id="step-2">Step 2: 문제 진단하기<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
+<p>모델을 테스트해 보면 아마도 이런 현상을 발견할 것입니다.</p>
+<p><strong>🔴 예상되는 오류 패턴:</strong>
+- 보자기를 내밀었는데 "주먹"이라고 인식함
+- 보자기의 정확도가 매우 낮음 (0~30% 수준)
+- 어떤 손 모양을 내밀어도 "주먹"이라고만 함</p>
+<p><strong>왜 이런 현상이 발생하나요?</strong></p>
+<p>데이터가 적은 클래스("보자기")를 학습할 기회가 너무 적었기 때문입니다. AI 입장에서 "보자기"는 5번밖에 본 적 없는 낯선 것이고, "주먹"은 30번이나 본 친숙한 것입니다. 모르겠으면 아는 것을 선택하는 것이 AI에게도 자연스러운 전략입니다.</p>
+<blockquote>
+<p>💡 <strong>비유</strong>: 10개 중 9개가 사과이고 1개가 배인 상자에서 눈감고 꺼낼 때, 무조건 "사과!"라고 외치면 90%는 맞습니다. AI가 이런 전략을 쓰는 것입니다.</p>
+</blockquote>
+<hr />
+<h3 id="step-3">Step 3: 데이터 개선하기<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h3>
+<p>이제 진짜 개선을 시작합니다! 같은 프로젝트에서 <strong>"보자기" 클래스에 데이터를 추가</strong>합니다.</p>
+<p><strong>📋 개선 체크리스트:</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>보자기 클래스에 추가 촬영</strong> (총 25~30장이 되도록)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 정면에서 촬영</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 약간 옆에서 촬영</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 가까이서 촬영</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 조금 멀리서 촬영</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 배경을 바꿔서 촬영</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>주먹 클래스도 다양하게 추가</strong> (비슷한 수준으로)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>학습 재시작</strong> 버튼 클릭</p>
+</li>
+</ul>
+<blockquote>
+<p>💬 <strong>팁</strong>: "홀드하여 녹화" 기능을 사용하면 다양한 각도로 움직이면서 한 번에 여러 장을 찍을 수 있습니다!</p>
+</blockquote>
+<hr />
+<h3 id="step-4">Step 4: 개선 효과 측정<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h3>
+<p>개선된 모델을 테스트하고 결과를 이전과 비교합니다.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📝 실험 2 기록지 (개선 후)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>─────────────────────────────────
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>주먹 데이터 수: ____장
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>보자기 데이터 수: ____장
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>테스트 결과:
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- 주먹을 냈을 때 정확히 인식? [ ]
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- 보자기를 냈을 때 정확히 인식? [ ]
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>실험 1과 비교:
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>- 개선된 점: _____________________
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>- 아직 부족한 점: ________________
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>─────────────────────────────────
+</span></code></pre></div>
+<p><strong>✅ 비교 기준표:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">테스트 항목</th>
+<th style="text-align: center;">실험 1 (편향)</th>
+<th style="text-align: center;">실험 2 (개선)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">주먹 인식률</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">보자기 인식률</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">전체 안정성</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">다양한 배경에서도 작동?</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-5">Step 5: 웹에서 모델 활용하기<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h3>
+<p>이제 만든 모델을 <strong>다른 사람도 쓸 수 있도록</strong> 웹에 내보내 봅시다!</p>
+<p><strong>① 모델 내보내기</strong></p>
+<p>Teachable Machine 화면 상단의 <strong>"모델 내보내기"</strong> 버튼을 클릭합니다.</p>
+<div class="svg-diagram">
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
+  <rect x="0" y="0" width="640" height="200" rx="12" fill="#F5F5F5" stroke="#DDD"/>
+
+  <!-- 단계 1 -->
+  <rect x="20" y="60" width="130" height="80" rx="8" fill="#E3F2FD" stroke="#2196F3"/>
+  <text x="85" y="92" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#1565C0">① 내보내기</text>
+  <text x="85" y="110" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">버튼 클릭</text>
+  <text x="85" y="128" text-anchor="middle" font-size="20" font-family="sans-serif">📤</text>
+
+  <!-- 화살표 -->
+  <line x1="155" y1="100" x2="185" y2="100" stroke="#666" stroke-width="2.5" marker-end="url(#arr)"/>
+  <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/></marker></defs>
+
+  <!-- 단계 2 -->
+  <rect x="190" y="60" width="130" height="80" rx="8" fill="#E8F5E9" stroke="#4CAF50"/>
+  <text x="255" y="92" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#2E7D32">② 클라우드</text>
+  <text x="255" y="110" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">업로드 선택</text>
+  <text x="255" y="128" text-anchor="middle" font-size="20" font-family="sans-serif">☁️</text>
+
+  <!-- 화살표 -->
+  <line x1="325" y1="100" x2="355" y2="100" stroke="#666" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 단계 3 -->
+  <rect x="360" y="60" width="130" height="80" rx="8" fill="#FFF3E0" stroke="#FF9800"/>
+  <text x="425" y="92" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#E65100">③ 링크 복사</text>
+  <text x="425" y="110" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">URL 생성됨</text>
+  <text x="425" y="128" text-anchor="middle" font-size="20" font-family="sans-serif">🔗</text>
+
+  <!-- 화살표 -->
+  <line x1="495" y1="100" x2="525" y2="100" stroke="#666" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- 단계 4 -->
+  <rect x="530" y="60" width="90" height="80" rx="8" fill="#F3E5F5" stroke="#9C27B0"/>
+  <text x="575" y="92" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#6A1B9A">④ 공유!</text>
+  <text x="575" y="110" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#555">누구나 사용</text>
+  <text x="575" y="128" text-anchor="middle" font-size="20" font-family="sans-serif">🌐</text>
+
+  <text x="320" y="175" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#888">모델을 클라우드에 올리면 고유한 URL이 생성됩니다</text>
+</svg>
+</div>
+
+<p><strong>② 내보내기 옵션 선택</strong></p>
+<p>팝업 창에서 다음 옵션들이 보입니다:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">옵션</th>
+<th style="text-align: center;">설명</th>
+<th style="text-align: center;">추천 대상</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>모델 업로드</strong></td>
+<td style="text-align: center;">Google 서버에 저장, URL로 공유</td>
+<td style="text-align: center;">🌟 초보자 추천</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Tensorflow.js</strong></td>
+<td style="text-align: center;">웹사이트에 직접 삽입</td>
+<td style="text-align: center;">웹 개발자</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Tensorflow Lite</strong></td>
+<td style="text-align: center;">스마트폰 앱에 사용</td>
+<td style="text-align: center;">앱 개발자</td>
+</tr>
+</tbody>
+</table>
+<p>우리는 <strong>"모델 업로드"</strong> 옵션을 선택합니다.</p>
+<p><strong>③ 링크 획득 및 테스트</strong></p>
+<p>"업로드" 버튼을 클릭하면 잠시 후 링크가 생성됩니다.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>예시 링크:
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>https://teachablemachine.withgoogle.com/models/ABC123XYZ/
+</span></code></pre></div>
+<p>이 링크를 복사해서 <strong>친구에게 보내면</strong>, 친구도 스마트폰이나 컴퓨터에서 우리가 만든 AI를 사용할 수 있습니다! 🎉</p>
+<p><strong>④ 실제 웹페이지에서 활용 (보너스)</strong></p>
+<p>더 나아가서, 이 모델을 실제 웹페이지에 붙여 넣을 수 있습니다. "Tensorflow.js" 옵션을 선택하면 아래와 같은 코드가 자동으로 생성됩니다.</p>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">&lt;!-- Teachable Machine이 자동 생성해 주는 코드 --&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Teachable Machine Image Model<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;init()&quot;</span><span class="p">&gt;</span>Start<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webcam-container&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;label-container&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="c1">// URL을 여러분의 모델 URL로 교체하세요</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://teachablemachine.withgoogle.com/models/여기에_모델_URL/&quot;</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="c1">// ... (나머지 코드는 자동 생성됩니다)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>코드를 몰라도 괜찮아요!</strong> 이 코드를 <code>index.html</code> 파일로 저장하면 웹 브라우저에서 바로 실행됩니다. 코드의 내용을 이해하는 것은 나중에 배울 것이고, 지금은 "AI가 이렇게 웹에서 실행되는구나!"를 경험하는 것이 목표입니다.</p>
+</blockquote>
+<hr />
+<h2 id="ai_1">🌍 AI가 실제로 활용되는 곳들<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h2>
+<p>여러분이 방금 만든 것과 동일한 원리로 작동하는 AI들이 실생활에서 이미 사용되고 있습니다.</p>
+<div class="mermaid">mindmap
+  root((이미지 인식 AI))
+    의료 분야
+      X-레이 판독
+      피부암 검진
+      안저 검사
+    교육 분야
+      수화 통역
+      자세 교정
+      출석 체크
+    산업 분야
+      불량품 검사
+      자동 분류
+      안전모 착용 감지
+    일상생활
+      스마트 잠금
+      손동작 게임
+      음식 칼로리 측정</div>
+<blockquote>
+<p>🤔 <strong>생각해보기</strong>: 위 활용 사례 중 데이터 편향이 가장 위험한 결과를 낳을 수 있는 분야는 어디일까요? 왜 그렇게 생각하나요?</p>
+</blockquote>
+<hr />
+<h2 id="_8">🔄 모델 개선의 반복 사이클<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>좋은 AI 모델을 만드는 것은 한 번에 끝나는 일이 아닙니다. 아래와 같은 <strong>개선 사이클</strong>을 반복하는 것이 핵심입니다.</p>
+<div class="mermaid">graph LR
+    A[📊 데이터 수집] --&gt; B[🤖 모델 학습]
+    B --&gt; C[🧪 성능 테스트]
+    C --&gt; D{목표 달성?}
+    D -- 아니오 --&gt; E[🔍 문제 분석]
+    E --&gt; F{원인은?}
+    F -- 데이터 부족 --&gt; A
+    F -- 데이터 불균형 --&gt; A
+    F -- 데이터 다양성 부족 --&gt; A
+    D -- 예 --&gt; G[✅ 배포 및 활용]
+    G --&gt; H[📡 실제 환경 모니터링]
+    H --&gt; C</div>
+<p>이 사이클은 데이터 과학자, 머신러닝 엔지니어들이 실제 업무에서도 사용하는 방식입니다. 여러분도 이미 이 방법을 직접 경험해 본 것입니다! 🎊</p>
+<hr />
+<h2 id="_9">⚠️ 주의할 점<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1">⚠️ 주의 1: "정확도 함정"에 빠지지 마세요<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>전체 정확도가 높다고 해서 좋은 모델이 아닙니다. 앞서 실험 1에서 봤듯이, 데이터가 많은 클래스는 잘 맞추지만 데이터가 적은 클래스는 거의 못 맞추는 경우가 있습니다. <strong>항상 각 클래스별 정확도를 개별적으로 확인하세요.</strong></p>
+<blockquote>
+<p>📌 <strong>체크 포인트</strong>: "가장 낮은 클래스 정확도"가 바로 모델의 진짜 약점입니다. 가장 낮은 클래스를 먼저 개선하세요.</p>
+</blockquote>
+<h3 id="2_1">⚠️ 주의 2: 실제 환경 ≠ 학습 환경<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>모델이 학습한 환경과 실제 사용 환경이 다르면 성능이 급격히 떨어질 수 있습니다. 이것을 <strong>분포 변화(Distribution Shift)</strong> 라고 합니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">상황</th>
+<th style="text-align: center;">예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">조명이 다를 때</td>
+<td style="text-align: center;">밝은 교실에서 학습 → 어두운 방에서 사용</td>
+</tr>
+<tr>
+<td style="text-align: center;">배경이 다를 때</td>
+<td style="text-align: center;">흰 벽 앞에서 학습 → 복잡한 배경에서 사용</td>
+</tr>
+<tr>
+<td style="text-align: center;">카메라 거리가 다를 때</td>
+<td style="text-align: center;">50cm 거리에서 학습 → 2m 거리에서 사용</td>
+</tr>
+</tbody>
+</table>
+<p><strong>해결책</strong>: 학습 데이터를 수집할 때부터 <strong>다양한 환경을 포함</strong>시키세요.</p>
+<hr />
+<h2 id="_10">✅ 점검하기<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">확인 문제 (객관식)<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>문제 1.</strong> 다음 중 데이터 편향이 발생하는 원인으로 적절하지 <strong>않은</strong> 것은?</p>
+<p>① 한쪽 클래스에만 데이터가 집중되어 있다<br />
+② 다양한 각도와 조명에서 데이터를 수집했다<br />
+③ 데이터에 잘못된 레이블(이름표)이 붙어 있다<br />
+④ 특정 조건에서만 데이터를 수집했다  </p>
+<details>
+<summary>정답 확인</summary>
+
+**정답: ②**
+
+다양한 각도와 조명에서 데이터를 수집하는 것은 오히려 편향을 **줄이는** 올바른 방법입니다. 나머지 ①③④는 모두 데이터 편향을 발생시키는 원인들입니다.
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="하단/푸터" >
+        
+          
+          <a href="../chapter03/" class="md-footer__link md-footer__link--prev" aria-label="이전: Teachable Machine으로 이미지 분류기 만들기">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              <div class="md-ellipsis">
+                Teachable Machine으로 이미지 분류기 만들기
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../chapter05/" class="md-footer__link md-footer__link--next" aria-label="다음: 프롬프트 엔지니어링의 기초">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              <div class="md-ellipsis">
+                프롬프트 엔지니어링의 기초
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 석리송 · 당곡고등학교 | <a href='https://eduflow-greatsong.fly.dev/'>EduFlow</a>로 제작
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/title-link.js"></script>
+      
+        <script src="../javascripts/mermaid-config.js"></script>
+      
+        <script src="../javascripts/scroll-progress.js"></script>
+      
+        <script src="../javascripts/eduflow-nav.js"></script>
+      
+    
+  </body>
+</html>
